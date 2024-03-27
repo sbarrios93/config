@@ -103,11 +103,12 @@ let user = "sbarrios"; in
         SecondClickThreshold = 0;
         TrackpadThreeFingerDrag = false;
       };
+
+      menuExtraClock = {
+        Show24Hour = true;
+      };
     };
 
-    menuExtraClock = {
-      Show24Hour = true;
-    };
 
     keyboard = {
       enableKeyMapping = true;
