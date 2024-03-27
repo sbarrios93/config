@@ -2,25 +2,36 @@ _:
 
 [
   # Development Tools
-  "homebrew/cask/docker"
   "visual-studio-code"
+  "orbstack"
+  "cursor"
+  "wezterm"
 
   # Communication Tools
   "discord"
-  "notion"
   "slack"
-  "telegram"
   "zoom"
 
   # Utility Tools
-  "syncthing"
+  "1password"
+  "1password-cli"
+  "raycast"
+  "chromedriver"
+  "fantastical"
+  "karabiner-elements"
+  "mac-mouse-fix"
+  "monitorcontrol"
+  "raindropio"
+  "setapp"
+  "the-unarchiver"
+  "expressvpn"
+  "dropbox"
 
   # Entertainment Tools
   "vlc"
-
-  # Productivity Tools
-  "raycast"
+  "spotify"
 
   # Browsers
   "google-chrome"
+  "arc"
 ]
