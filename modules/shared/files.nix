@@ -7,9 +7,14 @@ let
   xdg_stateHome = "${config.users.users.${user}.home}/.local/state";
 in
 {
+  # nvim
   "${xdg_configHome}/nvim" = {
     source = ../include/nvim;
     recursive = true;
+  };
+  # starship
+  "${xdg_configHome}/starship.toml" = {
+    source = ../include/starship.toml;
   };
 }
 

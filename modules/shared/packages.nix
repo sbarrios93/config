@@ -22,7 +22,6 @@ with pkgs; [
   ffmpeg
   fd
   font-awesome
-  fzf
 
   # Node.js development tools
   nodePackages.npm # globally install npm
