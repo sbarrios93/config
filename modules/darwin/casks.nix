@@ -6,6 +6,7 @@ _:
   "orbstack"
   "cursor"
   "wezterm"
+  "alacritty" # because wezterm does not work on virtual machines without GPU support (utm)
 
   # Communication Tools
   "discord"
