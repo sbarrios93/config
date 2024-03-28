@@ -40,7 +40,17 @@ let user = "sbarrios"; in
 
   fonts.fontDir.enable = true;
 
+  # Add ability to used TouchID for sudo authentication
+  security.pam.enableSudoTouchIdAuth = true;
+
   system = {
+    # activationScripts are executed every time you boot the system or run `nixos-rebuild` / `darwin-rebuild`.
+    activationScripts.postUserActivation.text = ''
+      # activateSettings -u will reload the settings from the database and apply them to the current session,
+      # so we do not need to logout and login again to make the changes take effect.
+      /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    '';
+
     stateVersion = 4;
 
     defaults = {
@@ -94,7 +104,6 @@ let user = "sbarrios"; in
         FXPreferredViewStyle = "Nlsv";
         ShowPathbar = true;
         ShowStatusBar = true;
-
       };
 
       trackpad = {
@@ -106,6 +115,40 @@ let user = "sbarrios"; in
 
       menuExtraClock = {
         Show24Hour = true;
+      };
+
+      CustomUserPreferences = {
+        NSGlobalDomain = {
+          WebKitDeveloperExtras = true;
+        };
+
+        "com.apple.finder" = {
+          ShowExternalHardDrivesOnDesktop = true;
+          ShowHardDrivesOnDesktop = true;
+          ShowMountedServersOnDesktop = true;
+          ShowRemovableMediaOnDesktop = true;
+          FXDefaultSearchScope = "SCcf";
+
+        };
+
+        "com.apple.desktopservices" = {
+          # Avoid creating .DS_Store files on network or USB volumes
+          DSDontWriteNetworkStores = true;
+          DSDontWriteUSBStores = true;
+        };
+
+        "com.apple.WindowManager" = {
+          EnableStandardClickToShowDesktop = 0; # Click wallpaper to reveal desktop
+          StandardHideDesktopIcons = 0; # Show items on desktop
+          HideDesktop = 0; # Do not hide items on desktop & stage manager
+          StageManagerHideWidgets = 0;
+          StandardHideWidgets = 0;
+        };
+
+        "com.apple.AdLib" = {
+          allowApplePersonalizedAdvertising = false;
+        };
+
       };
     };
 

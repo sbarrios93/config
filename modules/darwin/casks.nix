@@ -35,4 +35,8 @@ _:
   # Browsers
   "google-chrome"
   "arc"
+  "firefox"
+
+  # VM
+  "utm"
 ]
