@@ -3,6 +3,7 @@
 let
   user = "sbarrios";
   # Define the content of your file as a derivation
+  xdg_configHome = "${config.users.users.${user}.home}/.config";
   sharedFiles = import ../shared/files.nix { inherit config pkgs; };
   additionalFiles = import ./files.nix { inherit user config pkgs; };
 in
@@ -36,14 +37,20 @@ in
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
+    useUserPkgs = true;
     users.${user} = { pkgs, config, lib, ... }: {
       home = {
         enableNixpkgsReleaseCheck = false;
         packages = pkgs.callPackage ./packages.nix { };
-        file = lib.mkMerge [
-          sharedFiles
-          additionalFiles
-        ];
+
+        home.file."${xdg_configHome}/nvim" = {
+          source = ../config/nvim;
+          recursive = true;
+        };
+        # file = lib.mkMerge [
+        #   sharedFiles
+        #   additionalFiles
+        # ];
         stateVersion = "24.05";
       };
       programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };

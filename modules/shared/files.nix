@@ -7,8 +7,5 @@ let
   xdg_stateHome = "${config.users.users.${user}.home}/.local/state";
 in
 {
-  home.file."${xdg_configHome}/nvim" = {
-    source = ../config/nvim;
-  };
 }
 

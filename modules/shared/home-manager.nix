@@ -4,8 +4,6 @@ let
   name = "Sebastian Barrios Slight";
   user = "sbarrios";
   email = "sbarrios93@gmail.com";
-  xdg_configHome = "${config.home.homeDirectory}/.config";
-  nvimConfig = "${xdg_configHome}/config/modules/config/nvim/";
 in
 {
   # Shared shell configuration
@@ -17,9 +15,6 @@ in
         '';
   };
 
-  home.file."${xdg_configHome}/nvim" = {
-    source = ../config/nvim;
-  };
 
   git = {
     enable = true;
