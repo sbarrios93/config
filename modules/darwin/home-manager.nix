@@ -38,14 +38,16 @@ in
     useGlobalPkgs = true;
     users.${user} = { pkgs, config, lib, ... }: {
       home = {
+        stateVersion = "24.05";
         enableNixpkgsReleaseCheck = false;
+        sessionVariables = {
+          XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+        };
         packages = pkgs.callPackage ./packages.nix { };
-
         file = lib.mkMerge [
           sharedFiles
           additionalFiles
         ];
-        stateVersion = "24.05";
       };
       programs = { } // import ../shared/home-manager.nix { inherit config pkgs lib; };
 

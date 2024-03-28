@@ -16,5 +16,10 @@ in
   "${xdg_configHome}/starship.toml" = {
     source = ../include/starship.toml;
   };
+  # zsh aliases, functions
+  "${xdg_configHome}/zsh" = {
+    source = ../include/zsh;
+    recursive = true;
+  };
 }
 

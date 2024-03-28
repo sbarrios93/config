@@ -12,10 +12,33 @@ in
     autocd = true;
 
     initExtraFirst = ''
-      if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-          . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-          . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+      # start profiling
+        if [[ -n "$ZSH_DEBUGRC" ]]; then
+          zmodload zsh/zprof
+        fi
+        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
+            . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+            . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
+        fi
+    '';
+
+    initExtra = ''
+      # Define the array of sources similar to your .zshrc configuration
+      sources=(
+        "aliases"
+        "functions"
+        "rye-completion"
+      )
+
+      for s in "$${sources[@]}"; do
+        source $${XDG_CONFIG_HOME}/zsh/include/$$s.zsh
+      done
+
+      # end profiling
+      if [[ -n "$ZSH_DEBUGRC" ]]; then
+        zprof
       fi
+
     '';
   };
 
