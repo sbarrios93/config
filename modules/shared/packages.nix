@@ -14,12 +14,11 @@ with pkgs; [
   wget
   zip
   zsh
+  neovim
 
-  # Cryptography-related packages
   gnupg
   libfido2
 
-  # Media-related packages
   ffmpeg
   fd
   font-awesome
