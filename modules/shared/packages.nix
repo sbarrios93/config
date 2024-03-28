@@ -3,7 +3,6 @@
 with pkgs; [
   # General packages for development and system management
   bash-completion
-  bat
   btop
   coreutils
   eza
@@ -15,6 +14,7 @@ with pkgs; [
   zip
   zsh
   neovim
+  lazygit
 
   gnupg
   libfido2
