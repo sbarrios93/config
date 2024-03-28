@@ -42,4 +42,9 @@ with pkgs; [
 
   # Python packages
   rye
+
+  # trash command
+  trash-cli
+  rmtrash
+
 ]
