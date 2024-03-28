@@ -4,7 +4,7 @@ let
   name = "Sebastian Barrios Slight";
   user = "sbarrios";
   email = "sbarrios93@gmail.com";
-  xdg_configHome = "${config.users.users.${user}.home}/.config";
+  xdg_configHome = "${config.users.${user}.home}/.config";
   nvimConfig = "${xdg_configHome}/config/modules/config/nvim/";
 in
 {
