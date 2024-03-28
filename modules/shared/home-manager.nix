@@ -4,7 +4,8 @@ let
   name = "Sebastian Barrios Slight";
   user = "sbarrios";
   email = "sbarrios93@gmail.com";
-  nvimConfig = "${home-manager.user.${user}.home}/.config/config/modules/config/nvim/";
+  xdg_configHome = "${config.users.users.${user}.home}/.config";
+  nvimConfig = "${xdg_configHome}/config/modules/config/nvim/";
 in
 {
   # Shared shell configuration
