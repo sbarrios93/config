@@ -8,10 +8,9 @@ let user = "sbarrios"; in
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
     ../../modules/include/cachix
+    ./services.nix
   ];
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
 
   # Setup user, packages, programs
   nix = {

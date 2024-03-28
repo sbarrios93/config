@@ -1,0 +1,181 @@
+#!/usr/bin/env bash
+
+# shellcheck disable=SC1091
+source "${HOME}/.config/yabai/utilities"
+
+# debug
+yabai -m config debug_output on
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+# SETUP SPACES
+create_spaces 5
+# SPACE LABELS
+
+LABELS=(
+	web
+	work
+	ai
+	code
+	misc
+)
+for ((i = 1; i <= "${#LABELS[@]}"; i++)); do
+	yabai -m space "${i}" --label "${LABELS[(($i - 1))]}"
+done
+
+yabai -m space web --display 1
+yabai -m space work --display 1
+yabai -m space ai --display 1
+yabai -m space code --display 2
+yabai -m space misc --display 2
+
+# GENERAL
+yabai -m config layout bsp
+yabai -m config mouse_follows_focus off \
+	focus_follows_mouse off \
+	window_zoom_persist off \
+	window_placement second_child \
+	window_shadow float \
+	split_ratio 0.50 \
+	auto_balance off \
+	mouse_modifier fn \
+	mouse_action1 move \
+	mouse_action2 resize \
+	mouse_drop_action swap \
+	top_padding 8 \
+	bottom_padding 8 \
+	left_padding 8 \
+	right_padding 8 \
+	window_gap 10
+
+# JankyBorders
+borders active_color=0xffe2e2e3 inactive_color=0xff414550 width=6.0 style=round hidpi=on &
+
+# RULES
+UNMANAGED=(
+	Activity Monitor
+	App Store
+	Archive Utility
+	Cisco Secure Client
+	1Password
+	Calculator
+	Dictionary
+	FaceTime
+	Finder
+	Photo Booth
+	Python
+	Screen Sharing
+	Screens
+	Software Update
+	System Information
+	System Preferences
+	System Settings
+	VLC
+	iStat Menus
+	zoom.us
+	Raycast
+	Find My
+	The Unarchiver
+	Notification Center
+	Bartender 5
+	Karabiner-Elements
+	Karabiner-EventViewer
+)
+
+for ((i = 1; i <= "${#UNMANAGED[@]}"; i++)); do
+	yabai -m rule --add label="unmanage_${UNMANAGED[(($i - 1))]}" app="^${UNMANAGED[(($i - 1))]}.*$" manage=off
+done
+
+# Exclude problematic apps from being managed:
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add label="Arc" app="^Arc$" title="^(Sebastian|General|Profiles|Max|Shortcuts|Links|Icon|Advanced)$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add label="Orion" app="^Orion$" title="^((General|History|(Bookmark|Password|Profile|Extension|Website)s|Reading List|Browsing|Sync|Privacy|Search|Advanced|Plus)(\s+–\s+\d+\s+\w+)?)$" manage=off
+
+yabai -m config --space work layout stack window_opacity off
+
+STICKY=(
+	1Password
+	System Preferences
+	System Settings
+)
+
+for ((i = 1; i <= "${#STICKY[@]}"; i++)); do
+	yabai -m rule --add label="sticky_${STICKY[(($i - 1))]}" app="^${STICKY[(($i - 1))]}.*$" sticky=on
+done
+
+WEB=(
+	Firefox Developer Edition
+	Firefox
+	Google Chrome
+	Safari
+	Arc
+	Orion
+)
+
+for ((i = 1; i <= "${#WEB[@]}"; i++)); do
+	yabai -m rule --add label="main_${WEB[(($i - 1))]}" app="^${WEB[(($i - 1))]}.*$" space=web
+done
+
+WORK=(
+	Fantastical
+	Microsoft Excel
+	Microsoft Word
+	Microsoft Powerpoint
+	Microsoft Teams
+	Mail
+	Spark
+	Mail
+	Discord
+	Microsoft Outlook
+	Outlook
+	Messenger
+	Slack
+	Telegram
+)
+
+for ((i = 1; i <= "${#WORK[@]}"; i++)); do
+	yabai -m rule --add label="work_${WORK[(($i - 1))]}" app="^${WORK[(($i - 1))]}.*$" space=work
+done
+
+AI=(
+	LibreChat
+)
+for ((i = 1; i <= "${#AI[@]}"; i++)); do
+	yabai -m rule --add label="ai_${AI[(($i - 1))]}" app="^${AI[(($i - 1))]}.*$" space=ai
+done
+
+CODE=(
+	Qt Creator
+	Visual Studio Code
+	Visual Studio
+	Cursor
+	XCode
+	WezTerm
+)
+
+for ((i = 1; i <= "${#CODE[@]}"; i++)); do
+	yabai -m rule --add label="code_${CODE[(($i - 1))]}" app="^${CODE[(($i - 1))]}.*$" space=code
+done
+
+MISC=(
+	Spotify
+	Messages
+	Find My
+
+)
+for ((i = 1; i <= "${#MISC[@]}"; i++)); do
+	yabai -m rule --add label="misc_${MISC[(($i - 1))]}" app="^${MISC[(($i - 1))]}.*$" space=misc
+done
+
+# Setup or destroy spaces as needed to match 6
+for _ in $(yabai -m query --spaces | jq '.[].index | select(. > 5)'); do
+	yabai -m space --destroy 6
+done
+
+# yabai -m signal --add event=window_created action='$(send "window_destroyed $YABAI_WINDOW_ID")'
+yabai -m signal --add event=window_created action='yabai -m window $YABAI_WINDOW_ID --focus'
+yabai -m signal --add event=window_moved action='yabai -m window $YABAI_WINDOW_ID --focus'
+
+yabai -m rule --apply

@@ -1,0 +1,94 @@
+# brew services restart
+cmd + alt - b : skhd --restart-service; \
+                yabai --restart-service;
+### Yabai
+
+# Navigation
+shift + ctrl + alt - h : yabai -m window --focus west || yabai -m display --focus west
+shift + ctrl + alt - j : yabai -m window --focus south || yabai -m display --focus south
+shift + ctrl + alt - k : yabai -m window --focus north || yabai -m display --focus north
+shift + ctrl + alt - l : yabai -m window --focus east || yabai -m display --focus east
+
+# Moving windows
+shift + alt - h : yabai -m window --warp west ||  $(yabai -m window --display west && yabai -m display --focus west && yabai -m window --warp last) || yabai -m window --move rel:-10:0
+shift + alt - j : yabai -m window --warp south || $(yabai -m window --display south && yabai -m display --focus south) || yabai -m window --move rel:0:10
+shift + alt - k : yabai -m window --warp north || $(yabai -m window --display north && yabai -m display --focus north) || yabai -m window --move rel:0:-10
+shift + alt - l : yabai -m window --warp east || $(yabai -m window --display east && yabai -m display --focus east && yabai -m window --warp first) || yabai -m window --move rel:10:0
+
+# Switch workspace
+alt - 1 : yabai -m space --focus web
+alt - 2 : yabai -m space --focus work
+alt - 3 : yabai -m space --focus ai
+alt - 4 : yabai -m space --focus code
+alt - 5 : yabai -m space --focus misc
+alt - tab : yabai -m space --focus recent
+alt - 0x29 : yabai -m space --focus prev
+alt - 0x27 : yabai -m space --focus next
+
+# Move focus container to workspace
+shift + alt - 0x29 : yabai -m window --space prev && yabai -m space --focus prev && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 0x27 : yabai -m window --space next && yabai -m space --focus next && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 1 : yabai -m window --space web && yabai -m space --focus web && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 2 : yabai -m window --space work && yabai -m space --focus work && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 3 : yabai -m window --space ai && yabai -m space --focus ai && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 4 : yabai -m window --space code && yabai -m space --focus code && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 5 : yabai -m window --space terminal && yabai -m space --focus terminal && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+shift + alt - 6 : yabai -m window --space misc && yabai -m space --focus misc && yabai -m window --focus $(yabai -m query --windows --window | jq -r '.id')
+
+# Resize windows
+lctrl + alt - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+lctrl + alt - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+lctrl + alt - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+lctrl + alt - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
+
+# Equalize size of windows
+lctrl + alt - e : yabai -m space --balance
+
+# Enable / Disable gaps in current workspace
+lctrl + alt - g : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# Rotate windows clockwise and anticlockwise
+alt - r         : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 90
+
+# Rotate on X and Y Axis
+alt + lctrl - x : yabai -m space --mirror x-axis
+alt + lctrl - y : yabai -m space --mirror y-axis
+
+# Make window native fullscreen
+alt - f         : yabai -m window --toggle zoom-fullscreen
+lctrl + alt - f : yabai -m window --toggle native-fullscreen
+shift + alt - f : yabai -m window --toggle zoom-parent
+
+# Make window float
+shift + alt + ctrl - f : yabai -m window --toggle float
+# Change window layout
+shift + alt + ctrl -  q : yabai -m space --layout bsp
+shift + alt + ctrl -  w : yabai -m space --layout stack
+
+# Toggle split
+shift + lalt - s : yabai -m window --toggle split
+
+## Stacks (shift + ctrl - ...)
+# Add the active window to the window or stack to the {direction}: shift + ctrl - {j, k, l, ö}
+default < shift + ctrl - h : yabai -m window  west --stack $(yabai -m query --windows --window | jq -r '.id');
+default < shift + ctrl - j : yabai -m window south --stack $(yabai -m query --windows --window | jq -r '.id');
+default < shift + ctrl - k : yabai -m window north --stack $(yabai -m query --windows --window | jq -r '.id');
+default < shift + ctrl - l : yabai -m window  east --stack $(yabai -m query --windows --window | jq -r '.id');
+
+# Stack Navigation (shift + ctrl - alt [hyper] + ])
+shift + ctrl + alt - 0x1E :yabai -m window --focus stack.next || yabai -m window --focus stack.first || yabai -m window --focus next
+shift + ctrl + alt - 0x21 : yabai -m window --focus stack.prev || yabai -m window --focus stack.last || yabai -m window --focus prev
+
+# Move Space to Display
+shift + lctrl - tab : yabai -m space --display recent
+
+# Shift displays
+shift + alt - tab : source "${HOME}/.config/yabai/utilities"; swap_displays
+
+# Things anywhere
+shift + ctrl + alt - t : source "${HOME}/.config/yabai/show_things_anywhere"
