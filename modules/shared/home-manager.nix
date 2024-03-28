@@ -4,7 +4,7 @@ let
   name = "Sebastian Barrios Slight";
   user = "sbarrios";
   email = "sbarrios93@gmail.com";
-  nvimConfig = pkgs.lib.cleanSource "../config/nvim/";
+  nvimConfig = "${home-manager.user.${user}.home}/.config/config/modules/config/nvim/";
 in
 {
   # Shared shell configuration
@@ -13,24 +13,27 @@ in
     autocd = true;
 
     initExtraFirst = ''
-    '';
+        '';
   };
 
   home.file.".config/nvim".source = nvimConfig;
 
   git = {
     enable = true;
-    ignores = [ "*.swp" ];
+    ignores = [ " * .swp " ];
     userName = name;
     userEmail = email;
     lfs = {
       enable = true;
     };
     extraConfig = {
-      init.defaultBranch = "main";
+      init.defaultBranch = "
+    main ";
       core = {
-        editor = "vim";
-        autocrlf = "input";
+        editor = "
+    vim ";
+        autocrlf = "
+    input ";
       };
       pull.rebase = true;
       rebase.autoStash = true;
@@ -53,9 +56,10 @@ in
         '')
       (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
         ''
-          IdentityFile /Users/${user}/.ssh/id_github
+          IdentityFile /Users/${user} /.ssh/id_github
         '')
     ];
   };
 
 }
+
