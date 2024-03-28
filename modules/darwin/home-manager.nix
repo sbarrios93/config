@@ -43,7 +43,7 @@ in
         enableNixpkgsReleaseCheck = false;
         packages = pkgs.callPackage ./packages.nix { };
 
-        home.file."${xdg_configHome}/nvim" = {
+        file."${xdg_configHome}/nvim" = {
           source = ../config/nvim;
           recursive = true;
         };
