@@ -14,7 +14,7 @@ with pkgs; [
   wget
   zip
   zsh
-  neovim-nightly
+  neovim
 
   gnupg
   libfido2

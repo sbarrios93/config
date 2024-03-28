@@ -18,20 +18,17 @@ in
 
   git = {
     enable = true;
-    ignores = [ " * .swp " ];
+    ignores = [ "* .swp" ];
     userName = name;
     userEmail = email;
     lfs = {
       enable = true;
     };
     extraConfig = {
-      init.defaultBranch = "
-    main ";
+      init.defaultBranch = "main";
       core = {
-        editor = "
-    vim ";
-        autocrlf = "
-    input ";
+        editor = "vim";
+        autocrlf = "input";
       };
       pull.rebase = true;
       rebase.autoStash = true;
