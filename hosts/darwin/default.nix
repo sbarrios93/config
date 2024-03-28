@@ -7,7 +7,7 @@ let user = "sbarrios"; in
   imports = [
     ../../modules/darwin/home-manager.nix
     ../../modules/shared
-    ../../modules/shared/cachix
+    ../../modules/include/cachix
   ];
 
   # Auto upgrade nix package and the daemon service.
