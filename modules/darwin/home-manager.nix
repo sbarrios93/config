@@ -37,7 +37,7 @@ in
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
-    useUserPkgs = true;
+    useUserPackages = true;
     users.${user} = { pkgs, config, lib, ... }: {
       home = {
         enableNixpkgsReleaseCheck = false;
