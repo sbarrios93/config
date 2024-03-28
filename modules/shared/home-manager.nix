@@ -17,7 +17,9 @@ in
         '';
   };
 
-  home.file.".config/nvim".source = nvimConfig;
+  home.file."${xdg_configHome}/nvim" = {
+    source = ../config/nvim;
+  };
 
   git = {
     enable = true;
