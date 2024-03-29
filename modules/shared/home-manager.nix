@@ -30,7 +30,7 @@ in
     # completion, and running compinit twice is slow. (https://github.com/Obscurely/NixObscurely/blob/5883bcec80fb4542b6cb53fcf56a9bb22e00112c/modules/shell/zsh.nix#L37)
     completionInit = "";
     initExtra = builtins.readFile ../include/zsh/zsh_init.zsh;
-
+    envExtra = "export PATH=/etc/profiles/per-user/$USER/bin:/run/current-system/sw/bin/:/usr/local/bin:$PATH";
     profileExtra = builtins.readFile ../include/zsh/env;
   };
 
