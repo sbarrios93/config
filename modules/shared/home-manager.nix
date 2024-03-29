@@ -29,8 +29,7 @@ in
     # I init completion myself, because enableGlobalCompInit initializes it
     # too soon, which means commands initialized later in my config won't get
     # completion, and running compinit twice is slow. (https://github.com/Obscurely/NixObscurely/blob/5883bcec80fb4542b6cb53fcf56a9bb22e00112c/modules/shell/zsh.nix#L37)
-    enableGlobalCompInit = false;
-    promptInit = "";
+    completionInit = "";
 
 
     initExtraFirst = builtins.readFile ../include/zsh/zsh_init_first.zsh;
