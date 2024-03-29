@@ -40,11 +40,22 @@ in
       fi
 
     '';
+
+    profileExtra = builtins.readFile ../include/zsh/env;
   };
 
   starship = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  eza = {
+    enable = true;
+    enableZshIntegration = true;
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+    ];
   };
 
   # a cat(1) clone with syntax highlighting and Git integration.

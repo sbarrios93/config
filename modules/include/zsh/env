@@ -1,0 +1,31 @@
+
+# Added by OrbStack: command-line tools and integration
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
+### Env Paths
+# Dropbox
+export drive="$HOME/Dropbox"
+
+# code folder
+export code="$drive/code"
+
+# Notes
+export notes="$HOME/notes"
+
+export HDF5_DIR=/opt/homebrew/opt/hdf5
+# for openblas
+export LDFLAGS="-L/opt/homebrew/opt/openblas/lib -L/opt/homebrew/opt/lapack/lib ${LDFLAGS}"
+# fix numpy/scipy build issues
+export OPENBLAS=$(/opt/homebrew/bin/brew --prefix openblas)
+export CFLAGS="-falign-functions=8 ${CFLAGS}"
+export CPPFLAGS="-I/opt/homebrew/opt/lapack/include -I/opt/homebrew/opt/openblas/include ${CPPFLAGS}"
+
+# custom scripts
+export scripts="$XDG_CONFIG_HOME/scripts"
+
+# RUST PATHS
+export RUSTUP_HOME="$XDG_CONFIG_HOME/rustup"
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+
+#1Password
+export OPENAI_API_KEY="op://Personal/OpenAI/token"
