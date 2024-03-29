@@ -2,8 +2,6 @@ alias myip='curl https://ipinfo.io/json'
 alias run-speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias zz='nvim $HOME/.zshrc'
 alias sz='source ~/.zshrc'
-# VIM Init
-alias vc='nvim $XDG_CONFIG_HOME/nvim/init.lua'
 # https://github.com/PhrozenByte/rmtrash
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'

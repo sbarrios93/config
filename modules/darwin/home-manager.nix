@@ -42,6 +42,7 @@ in
         enableNixpkgsReleaseCheck = false;
         sessionVariables = {
           XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
+          XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
         };
         packages = pkgs.callPackage ./packages.nix { };
         file = lib.mkMerge [

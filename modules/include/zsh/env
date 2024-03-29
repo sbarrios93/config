@@ -12,13 +12,14 @@ export code="$drive/code"
 # Notes
 export notes="$HOME/notes"
 
-export HDF5_DIR=/opt/homebrew/opt/hdf5
+### Now that we are using NIX, not sure if we need these
+# export HDF5_DIR=/opt/homebrew/opt/hdf5
 # for openblas
-export LDFLAGS="-L/opt/homebrew/opt/openblas/lib -L/opt/homebrew/opt/lapack/lib ${LDFLAGS}"
+# export LDFLAGS="-L/opt/homebrew/opt/openblas/lib -L/opt/homebrew/opt/lapack/lib ${LDFLAGS}"
 # fix numpy/scipy build issues
-export OPENBLAS=$(/opt/homebrew/bin/brew --prefix openblas)
-export CFLAGS="-falign-functions=8 ${CFLAGS}"
-export CPPFLAGS="-I/opt/homebrew/opt/lapack/include -I/opt/homebrew/opt/openblas/include ${CPPFLAGS}"
+# export OPENBLAS=$(/opt/homebrew/bin/brew --prefix openblas)
+# export CFLAGS="-falign-functions=8 ${CFLAGS}"
+# export CPPFLAGS="-I/opt/homebrew/opt/lapack/include -I/opt/homebrew/opt/openblas/include ${CPPFLAGS}"
 
 # custom scripts
 export scripts="$XDG_CONFIG_HOME/scripts"
@@ -29,3 +30,10 @@ export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
 
 #1Password
 export OPENAI_API_KEY="op://Personal/OpenAI/token"
+
+# RYE
+export RYE_HOME="$XDG_CONFIG_HOME/rye"
+
+# ZGENOM
+ZGEN_DIR=$XDG_DATA_HOME/zgenom
+

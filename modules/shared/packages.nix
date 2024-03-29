@@ -3,9 +3,7 @@
 with pkgs; [
   # General packages for development and system management
   bash-completion
-  btop
   coreutils
-  eza
   killall
   neofetch
   openssh
@@ -13,8 +11,6 @@ with pkgs; [
   wget
   zip
   zsh
-  neovim
-  lazygit
 
   gnupg
   libfido2
@@ -32,8 +28,6 @@ with pkgs; [
   htop
   iftop
   jetbrains-mono
-  jq
-  ripgrep
   tree
   tmux
   unrar
@@ -41,6 +35,9 @@ with pkgs; [
 
   # Python packages
   rye
+
+  # rust
+  rustup
 
   # trash command
   trash-cli

@@ -6,40 +6,36 @@ let
   email = "sbarrios93@gmail.com";
 in
 {
+
+  awscli.enable = true;
+  btop.enable = true;
+  jq.enable = true;
+  lazygit.enable = true;
+  less.enable = true;
+  ripgrep.enable = true;
+  tmux.enable = true;
+  ruff.enable = true;
+
+  neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
+
   # Shared shell configuration
   zsh = {
     enable = true;
     autocd = true;
+    enableCompletion = true;
+    # I init completion myself, because enableGlobalCompInit initializes it
+    # too soon, which means commands initialized later in my config won't get
+    # completion, and running compinit twice is slow. (https://github.com/Obscurely/NixObscurely/blob/5883bcec80fb4542b6cb53fcf56a9bb22e00112c/modules/shell/zsh.nix#L37)
+    enableGlobalCompInit = false;
+    promptInit = "";
 
-    initExtraFirst = ''
-      # start profiling
-        if [[ -n "$ZSH_DEBUGRC" ]]; then
-          zmodload zsh/zprof
-        fi
-        if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
-            . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-            . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
-        fi
-    '';
 
-    initExtra = ''
-      # Define the array of sources similar to your .zshrc configuration
-      sources=(
-        "aliases"
-        "functions"
-        "rye-completion"
-      )
+    initExtraFirst = builtins.readFile ../include/zsh/zsh_init_first.zsh;
 
-      for s in "''${sources[@]}"; do
-        source $XDG_CONFIG_HOME/zsh/include/''${s}.zsh
-      done
-
-      # end profiling
-      if [[ -n "$ZSH_DEBUGRC" ]]; then
-        zprof
-      fi
-
-    '';
+    initExtra = builtins.readFile ../include/zsh/zsh_init.zsh;
 
     profileExtra = builtins.readFile ../include/zsh/env;
   };
@@ -100,6 +96,7 @@ in
       "hl+" = "#f38ba8";
     };
   };
+
 
   # zoxide is a smarter cd command, inspired by z and autojump.
   # It remembers which directories you use most frequently,
