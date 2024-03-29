@@ -50,8 +50,8 @@ if [[ $TERM != dumb ]]; then
 		"rye-completion"
 	)
 
-	for s in "''${sources[@]}"; do
-		source $XDG_CONFIG_HOME/zsh/include/''${s}.zsh
+	for s in "${sources[@]}"; do
+		source $XDG_CONFIG_HOME/zsh/include/${s}.zsh
 	done
 
 	autopair-init
