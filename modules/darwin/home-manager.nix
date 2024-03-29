@@ -36,6 +36,7 @@ in
   # Enable home-manager
   home-manager = {
     useGlobalPkgs = true;
+    useUserPackages = true;
     users.${user} = { pkgs, config, lib, ... }: {
       home = {
         stateVersion = "24.05";
