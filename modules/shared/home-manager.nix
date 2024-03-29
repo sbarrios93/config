@@ -14,7 +14,6 @@ in
   less.enable = true;
   ripgrep.enable = true;
   tmux.enable = true;
-  ruff.enable = true;
 
   neovim = {
     enable = true;
