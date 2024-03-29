@@ -17,6 +17,7 @@ let user = "sbarrios"; in
         {
           enable = true;
         };
+
       # Enable yabai, a tiling window manager for macOS
       yabai = {
         enable = true;
@@ -48,6 +49,10 @@ let user = "sbarrios"; in
   nix = {
     package = pkgs.nixUnstable;
     settings.trusted-users = [ "@admin" "${user}" ];
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    # Automatically detect files in the store with identical contents and
+    # replaces them with hard links to a single copy
+    settings.auto-optimise-store = true;
 
     gc = {
       user = "root";
@@ -56,14 +61,10 @@ let user = "sbarrios"; in
       options = "--delete-older-than 30d";
     };
 
-    # Turn this on to make command line easier
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
   };
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
 
-  # Turn off NIX_PATH warnings now that we're using flakes
-  system.checks.verifyNixPath = false;
 
   # Load configuration that is shared across systems
   environment.systemPackages = with pkgs;

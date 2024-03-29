@@ -6,7 +6,7 @@ let
   email = "sbarrios93@gmail.com";
 in
 {
-
+  home-manager.enable = true;
   awscli.enable = true;
   btop.enable = true;
   jq.enable = true;
