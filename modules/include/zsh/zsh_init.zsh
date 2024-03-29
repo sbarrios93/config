@@ -1,6 +1,6 @@
 # NOTE Using zgenom because zgen is no longer maintained
 
-ZGEN_DIR=$XDG_DATA_HOME/zgenom
+export ZGEN_DIR=$XDG_DATA_HOME/zgenom
 if [ ! -d "$ZGEN_DIR" ]; then
 	echo "Installing jandamm/zgenom"
 	git clone https://github.com/jandamm/zgenom "$ZGEN_DIR"
