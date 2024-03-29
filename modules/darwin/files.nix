@@ -10,4 +10,12 @@ in
       source = ../include/karabiner;
       recursive = true;
     };
+  "${xdg_configHome}/yabai" = {
+    source = ../include/yabai;
+    recursive = true;
+  };
+  "${xdg_configHome}/skhd" = {
+    source = ../include/skhd;
+    recursive = true;
+  };
 }

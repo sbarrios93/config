@@ -46,6 +46,7 @@ in
           XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
           XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
           ZSH_CACHE = "${config.home.homeDirectory}/.cache/zsh";
+          ZGEN_DIR = "${config.home.homeDirectory}/.local/share/zgenom";
         };
         packages = pkgs.callPackage ./packages.nix { };
         file = lib.mkMerge [
