@@ -43,6 +43,8 @@ in
         sessionVariables = {
           XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
           XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";
+          XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
+          ZSH_CACHE = "${config.home.homeDirectory}/.cache/zsh";
         };
         packages = pkgs.callPackage ./packages.nix { };
         file = lib.mkMerge [
