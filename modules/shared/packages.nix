@@ -10,7 +10,6 @@ with pkgs; [
   sqlite
   wget
   zip
-  zsh
 
   gnupg
   libfido2

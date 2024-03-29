@@ -6,9 +6,6 @@ alias sz='source ~/.zshrc'
 alias rm='rmtrash'
 alias rmdir='rmdirtrash'
 alias sudo='sudo '
-# ls
-TREE_IGNORE="cache|log|logs|node_modules|vendor|__pycache__"
-
 # cat
 alias cat=' bat'
 alias grep='grep --color=auto'

@@ -29,10 +29,6 @@ in
     # too soon, which means commands initialized later in my config won't get
     # completion, and running compinit twice is slow. (https://github.com/Obscurely/NixObscurely/blob/5883bcec80fb4542b6cb53fcf56a9bb22e00112c/modules/shell/zsh.nix#L37)
     completionInit = "";
-
-
-    initExtraFirst = builtins.readFile ../include/zsh/zsh_init_first.zsh;
-
     initExtra = builtins.readFile ../include/zsh/zsh_init.zsh;
 
     profileExtra = builtins.readFile ../include/zsh/env;

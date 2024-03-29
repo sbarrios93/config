@@ -13,8 +13,6 @@ zgenom autoupdate
 
 if ! zgenom saved; then
 	echo "Initializing zgenom"
-	rm -f $ZGEN_INIT.zwc
-
 	# Ohmyzsh base library
 	zgenom ohmyzsh
 
@@ -25,10 +23,9 @@ if ! zgenom saved; then
 
 	# NOTE Be extra careful about plugin load order, or subtle breakage can
 	#   emerge. This is the best order I've sussed out for these plugins.
-	zgenom load junegunn/fzf shell
 	zgenom load jeffreytse/zsh-vi-mode
 	zgenom load zdharma-continuum/fast-syntax-highlighting
-	zgenom load zsh-users/zsh-completions src
+	zgenom load zsh-users/zsh-completions
 	zgenom load zsh-users/zsh-autosuggestions
 	zgenom load zsh-users/zsh-history-substring-search
 	zgenom load hlissner/zsh-autopair autopair.zsh
@@ -57,9 +54,4 @@ if [[ $TERM != dumb ]]; then
 	done
 
 	autopair-init
-fi
-
-# end profiling
-if [[ -n "$ZSH_DEBUGRC" ]]; then
-	zprof
 fi
