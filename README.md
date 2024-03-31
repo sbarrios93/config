@@ -22,6 +22,7 @@ This repository contains my personal dotfiles and system configuration for setti
 - [Customization](#customization)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
 - [License](#license)
 
 ## Prerequisites
@@ -191,6 +192,11 @@ If you encounter any issues while using this configuration, consider the followi
 ## Contributing
 
 While this configuration is primarily for my personal use, if you have any suggestions or improvements, feel free to open an issue or submit a pull request. I appreciate any feedback or ideas that can enhance my setup.
+
+## Acknowledgements
+A lot of the inspiration for this configuration comes from the following sources:
+- [Aeolyus Dotfiles](https://github.com/aeolyus/dotfiles/tree/master)
+- [Dustin Lyons NixOS Configuration](https://github.com/dustinlyons/nixos-config)
 
 ## License
 
