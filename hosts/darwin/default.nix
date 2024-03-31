@@ -15,7 +15,7 @@ darwinSystem {
   modules = [
     home-manager.darwinModules.home-manager
     {
-      home.manager.users.${user.username} = import ../../home/darwin;
+      home-manager.users.${user.username} = import ../../home/darwin;
       home-manager.extraSpecialArgs = { inherit user; };
     }
     # TODO: Move this to its own module
