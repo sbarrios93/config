@@ -13,9 +13,7 @@ darwinSystem
 {
   system = "aarch64-darwin";
   specialArgs = {
-    inherit self user
-      #nix-homebrew
-      ;
+    inherit self user;
   };
   modules = [
     home-manager.darwinModules.home-manager
