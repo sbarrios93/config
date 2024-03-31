@@ -3,7 +3,7 @@ let
   self = inputs.self;
   darwinSystem = inputs.darwin.lib.darwinSystem;
   home-manager = self.inputs.home-manager;
-  user = vars.user;
+  user = vars.users;
   nix-homebrew = self.inputs.nix-homebrew;
   homebrew-core = self.inputs.homebrew-core;
   homebrew-cask = self.inputs.homebrew-cask;
