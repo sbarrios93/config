@@ -9,5 +9,7 @@
     ./packages.nix
     ./tmux.nix
     ./zsh.nix
+    ./starship.nix
+    ./eza.nix
   ];
 }
