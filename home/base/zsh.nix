@@ -1,11 +1,9 @@
-{ pkgs, ... }:
 {
   programs.zsh = {
     enable = true;
     defaultKeymap = "viins";
     autocd = true;
-    completionInit = "";
-
+    promptInit = "";
     antidote = {
       enable = true;
       plugins = [
@@ -19,7 +17,6 @@
         "robbyrussell/oh-my-zsh path:plugins/colored-man-pages"
         "robbyrussell/oh-my-zsh path:plugins/common-aliases"
         "robbyrussell/oh-my-zsh path:plugins/sudo"
-
       ];
     };
     history = {

@@ -21,7 +21,6 @@ command -v brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:
 autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
-zstyle ':completion:*' list-colors '''
 
 unsetopt menu_complete
 unsetopt flowcontrol
@@ -41,7 +40,6 @@ zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
 zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
 zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*' format ' %F{yellow}-- %d --%f'
-zstyle ':completion:*' group-name '''
 zstyle ':completion:*' verbose yes
 # Fuzzy match mistyped completions.
 zstyle ':completion:*' completer _complete _match _approximate
