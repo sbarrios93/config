@@ -9,19 +9,18 @@ let
   #  homebrew-cask = self.inputs.homebrew-cask;
   #  homebrew-bundle = self.inputs.homebrew-bundle;
 in
-darwinSystem
-{
+darwinSystem {
   system = "aarch64-darwin";
   specialArgs = {
-    inherit self user;
+    inherit self user
+      #nix-homebrew
+      ;
   };
   modules = [
     home-manager.darwinModules.home-manager
     {
-      home-manager. users.${ user.username} = import../../home/darwin;
-      home-manager. extraSpecialArgs = {
-        inherit user;
-      };
+      home-manager.users.${user.username} = import ../../home/darwin;
+      home-manager.extraSpecialArgs = { inherit user; };
     }
     # TODO: Move this to its own module
     #   nix-homebrew.darwinModules.nix-homebrew

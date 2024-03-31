@@ -3,7 +3,6 @@
     enable = true;
     defaultKeymap = "viins";
     autocd = true;
-    promptInit = "";
     antidote = {
       enable = true;
       plugins = [
