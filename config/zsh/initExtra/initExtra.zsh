@@ -17,11 +17,12 @@ bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
 # ZSH Completions
-command -v brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:''${FPATH}"
+command -v brew &>/dev/null && FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' list-colors '''
+
 unsetopt menu_complete
 unsetopt flowcontrol
 setopt globdots

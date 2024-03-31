@@ -20,7 +20,7 @@
         "robbyrussell/oh-my-zsh path:plugins/common-aliases"
         "robbyrussell/oh-my-zsh path:plugins/sudo"
 
-      ] ++ (if pkgs.stdenv.isDarwin then [ "robbyrussell/oh-my-zsh path:plugins/macos" ] else [ ]);
+      ];
     };
     history = {
       # Record timestamp
