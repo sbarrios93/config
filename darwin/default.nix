@@ -6,7 +6,7 @@
     ./finder.nix
     ./trackpad.nix
     ./dock
-    ./homebrew
+    #   ./homebrew
     ./keyboard.nix
     ./CustomUserPreferences.nix
     ./touchID.nix
