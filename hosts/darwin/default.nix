@@ -22,7 +22,7 @@ darwinSystem {
     nix-homebrew.darwinModules.nix-homebrew
     {
       nix-homebrew = {
-        inherit user;
+        user = user.username;
         enable = true;
         taps = {
           "homebrew/homebrew-core" = homebrew-core;
