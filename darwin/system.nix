@@ -12,6 +12,8 @@
     };
   };
   # Create /etc/zshrc that loads the nix-darwin environment
+  # WARNING: THIS IS CRITICAL FOR THE CORRECT PATHS TO BE SET
+  # WHEN useUserPackages and UseGlobalPkgs ARE SET TO TRUE
   programs.zsh.enable = true;
   # Remove default prompt
   programs.zsh.promptInit = "";

@@ -4,18 +4,14 @@ let
   darwinSystem = inputs.darwin.lib.darwinSystem;
   home-manager = self.inputs.home-manager;
   user = vars.users;
-  # nix-homebrew = self.inputs.nix-homebrew;
-  #  homebrew-core = self.inputs.homebrew-core;
-  #  homebrew-cask = self.inputs.homebrew-cask;
-  #  homebrew-bundle = self.inputs.homebrew-bundle;
+  nix-homebrew = self.inputs.nix-homebrew;
+  homebrew-core = self.inputs.homebrew-core;
+  homebrew-cask = self.inputs.homebrew-cask;
+  homebrew-bundle = self.inputs.homebrew-bundle;
 in
 darwinSystem {
   system = "aarch64-darwin";
-  specialArgs = {
-    inherit self user
-      #nix-homebrew
-      ;
-  };
+  specialArgs = { inherit self user nix-homebrew; };
   modules = [
     home-manager.darwinModules.home-manager
     {
@@ -23,20 +19,20 @@ darwinSystem {
       home-manager.extraSpecialArgs = { inherit user; };
     }
     # TODO: Move this to its own module
-    #   nix-homebrew.darwinModules.nix-homebrew
-    #   {
-    #     nix-homebrew = {
-    #       user = user.username;
-    #       enable = true;
-    #       taps = {
-    #         "homebrew/homebrew-core" = homebrew-core;
-    #         "homebrew/homebrew-cask" = homebrew-cask;
-    #         "homebrew/homebrew-bundle" = homebrew-bundle;
-    #       };
-    #       mutableTaps = false;
-    #       autoMigrate = true;
-    #     };
-    #   }
+    nix-homebrew.darwinModules.nix-homebrew
+    {
+      nix-homebrew = {
+        user = user.username;
+        enable = true;
+        taps = {
+          "homebrew/homebrew-core" = homebrew-core;
+          "homebrew/homebrew-cask" = homebrew-cask;
+          "homebrew/homebrew-bundle" = homebrew-bundle;
+        };
+        mutableTaps = false;
+        autoMigrate = true;
+      };
+    }
     ../../common
     ../../darwin
   ];

@@ -1,5 +1,7 @@
 {
   imports = [
+    ./bat.nix
+    ./zoxide.nix
     ./fonts.nix
     ./fzf.nix
     ./git.nix
