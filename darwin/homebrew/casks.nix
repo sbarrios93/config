@@ -27,6 +27,7 @@ _:
   "the-unarchiver"
   "expressvpn"
   "dropbox"
+  "aerospace"
 
   # Entertainment Tools
   "vlc"

@@ -11,4 +11,8 @@
     source = ../../config/wezterm;
     recursive = true;
   };
+  xdg.configFile."aerospace" = {
+    source = ../../config/aerospace;
+    recursive = true;
+  };
 }

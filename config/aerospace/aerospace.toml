@@ -1,0 +1,133 @@
+# Start Aerospace at login
+start-at-login = true
+
+# Possible values: tiles|accordion
+default-root-container-layout = 'tiles'
+
+# Possible values: horizontal|vertical|auto
+# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
+#               tall monitor (anything higher than wide) gets vertical orientation
+default-root-container-orientation = 'auto'
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# Visual indent makes it easier to understand that containers of the same orientation are nested.
+# If you have 'enable-normalization-opposite-orientation-for-nested-containers' enabled then
+# there is no way to observe the indent
+indent-for-nested-containers-with-the-same-orientation = 30
+
+non-empty-workspaces-root-containers-layout-on-startup = 'smart'
+
+[gaps]
+inner.horizontal = 8
+inner.vertical = 8
+outer.left = 4
+outer.bottom = 4
+outer.top = 4
+outer.right = 4
+
+
+[mode.main.binding]
+ctrl-shift-alt-backtick = 'flatten-workspace-tree'
+ctrl-shift-alt-esc = 'reload-config'
+
+# ---Nodes---
+ctrl-shift-alt-h = 'focus left'
+ctrl-shift-alt-cmd-h = 'move-through left'
+
+ctrl-shift-alt-j = 'focus down'
+ctrl-shift-alt-cmd-j = 'move-through down'
+
+ctrl-shift-alt-k = 'focus up'
+ctrl-shift-alt-cmd-k = 'move-through up'
+
+ctrl-shift-alt-l = 'focus right'
+ctrl-shift-alt-cmd-l = 'move-through right'
+
+ctrl-shift-alt-f = 'fullscreen'
+ctrl-shift-alt-cmd-f = 'macos-native-fullscreen'
+
+# Resize
+ctrl-shift-alt-minus = 'resize smart -50'
+ctrl-shift-alt-equal = 'resize smart +50'
+
+
+ctrl-shift-alt-cmd-comma = 'move-node-to-monitor prev --wrap-around'
+ctrl-shift-alt-cmd-period = 'move-node-to-monitor next --wrap-around'
+
+# ---Workspaces---
+ctrl-shift-alt-enter = 'workspace-back-and-forth'
+
+ctrl-shift-alt-semicolon = 'workspace prev --wrap-around'
+ctrl-shift-alt-quote = 'workspace next --wrap-around'
+
+ctrl-shift-alt-cmd-semicolon = 'move-workspace-to-monitor prev --wrap-around'
+ctrl-shift-alt-cmd-quote = 'move-workspace-to-monitor next --wrap-around'
+
+# Positioning
+ctrl-shift-alt-w = 'layout tiles horizontal vertical'
+ctrl-shift-alt-cmd-w = 'layout h_accordion'           # stacking
+
+# Assignment
+ctrl-shift-alt-1 = 'workspace 1'
+ctrl-shift-alt-2 = 'workspace 2'
+ctrl-shift-alt-3 = 'workspace 3'
+ctrl-shift-alt-4 = 'workspace 4'
+ctrl-shift-alt-5 = 'workspace 5'
+ctrl-shift-alt-6 = 'workspace 6'
+
+ctrl-shift-alt-cmd-1 = 'move-node-to-workspace 1'
+ctrl-shift-alt-cmd-2 = 'move-node-to-workspace 2'
+ctrl-shift-alt-cmd-3 = 'move-node-to-workspace 3'
+ctrl-shift-alt-cmd-4 = 'move-node-to-workspace 4'
+ctrl-shift-alt-cmd-5 = 'move-node-to-workspace 5'
+ctrl-shift-alt-cmd-6 = 'move-node-to-workspace 6'
+
+
+# ---Monitors---
+
+ctrl-shift-alt-leftSquareBracket = 'focus-monitor next --wrap-around'
+ctrl-shift-alt-rightSquareBracket = 'focus-monitor prev --wrap-around'
+
+# --- Rules ---
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'pl.maketheweb.cleanshotx'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.1password.1password'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.cisco.anyconnect.gui'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.culturedcode.ThingsMac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'os.zoom.xos'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.archiveutility'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.findmy'
+run = 'layout floating'

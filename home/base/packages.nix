@@ -15,6 +15,10 @@
     wget # Non-interactive network downloader
     zip # Compression and file packaging utility
 
+
+    # CLI tools
+    shell_gpt
+
     # Git and version control
     git # Distributed version control system
     git-branchless # Enhance git stacked diffs
