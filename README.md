@@ -175,7 +175,7 @@ The provided Makefile offers convenient commands for managing the NixOS configur
 
 ## Customization
 
-While this configuration is tailored to my personal preferences and setup, you can still use it as a starting point for your own configuration. Feel free to explore the files in the `home/`, `darwin/`, and `common/` directories and adapt them to suit your needs.
+While this configuration is tailored to my personal preferences and setup, you can still use it as a starting point for your own configuration. Feel free to explore the files in the `home/`, `darwin/`, and `common/` directories and adapt them tohttps://github.com/dustinlyons/nixos-config) suit your needs.
 
 Remember to review the configuration files carefully and understand the implications of any changes you make.
 
