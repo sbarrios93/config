@@ -142,7 +142,7 @@ The `darwin/dock/` directory contains configuration files for managing the macOS
 
 The `darwin/homebrew/` directory contains configuration files for integrating Homebrew package management with Nix. It includes:
 
-- `casks.nix`: List of Homebrew casks to install.
+- `casks`: List of Homebrew casks to install, depending on the environment: `personal` or `work`
 - `default.nix`: Main configuration file for Homebrew integration.
 
 ## Common Configuration
@@ -159,6 +159,7 @@ The `vars/` directory contains variable definitions used in the configuration. I
 
 - `default.nix`: Main variable definition file.
 - `users/default.nix`: User-specific variable definitions.
+- `environments/default.nix`: Defines if the environment is `personal` or `work`
 
 ## Additional Configuration
 
@@ -169,6 +170,8 @@ The `config/` directory contains additional configuration files, such as aliases
 The provided Makefile offers convenient commands for managing the NixOS configuration:
 
 - `make deploy`: Deploys the NixOS configuration by building and switching to the defined configuration.
+- `make deploy-work`: Runs the `switch-environment.sh` script, sets the `vars/environments/default.nix` environment to `work` and runs `make deploy`
+- `make deploy-personal`: Runs the `switch-environment.sh` script, sets the `vars/environments/default.nix` environment to `personal` and runs `make deploy`
 - `make fmt`: Formats the Nix code using `nixfmt`.
 - `make lint`: Lints the Nix code using `nixfmt` and `deadnix`.
 - `make help`: Displays the available Makefile commands and their descriptions.
