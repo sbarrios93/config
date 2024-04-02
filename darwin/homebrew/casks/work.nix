@@ -8,11 +8,6 @@ _:
   "wezterm"
   "alacritty" # because wezterm does not work on virtual machines without GPU support (utm)
 
-  # Communication Tools
-  "discord"
- # "slack"
- # "zoom"
-
   # Utility Tools
   "1password"
   "raycast"
@@ -24,12 +19,10 @@ _:
   "raindropio"
   "setapp"
   "the-unarchiver"
-  "expressvpn"
   "dropbox"
   "aerospace"
 
   # Entertainment Tools
-  "vlc"
   "spotify"
 
   # Browsers

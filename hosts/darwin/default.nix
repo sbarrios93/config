@@ -4,6 +4,7 @@ let
   darwinSystem = inputs.darwin.lib.darwinSystem;
   home-manager = self.inputs.home-manager;
   user = vars.users;
+  environment = vars.environments;
   nix-homebrew = self.inputs.nix-homebrew;
   homebrew-core = self.inputs.homebrew-core;
   homebrew-cask = self.inputs.homebrew-cask;
@@ -12,7 +13,7 @@ let
 in
 darwinSystem {
   system = "aarch64-darwin";
-  specialArgs = { inherit self user nix-homebrew; };
+  specialArgs = { inherit self user nix-homebrew environment; };
   modules = [
     home-manager.darwinModules.home-manager
     {

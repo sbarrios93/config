@@ -1,15 +1,22 @@
-
 default: help
 
 DARWIN_REBUILD := ./result/sw/bin/darwin-rebuild
+
+.PHONY: deploy-work
+deploy-work: ## Deploy work configuration
+	./switch-environment.sh work
+	make deploy
+
+.PHONY: deploy-personal
+deploy-personal: ## Deploy personal configuration
+	./switch-environment.sh personal
+	make deploy
 
 .PHONY: deploy
 deploy: $(DARWIN_REBUILD) ## Bootstrap
 	$(DARWIN_REBUILD) switch \
 		--flake .#aarch64-darwin \
-		--option accept-flake-config true
-
-.PHONY: fmt
+		--option accept-flake-config true.PHONY: fmt
 fmt: ## Format code
 	nix fmt --accept-flake-config
 
