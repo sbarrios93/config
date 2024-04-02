@@ -54,8 +54,8 @@ ctrl-shift-alt-minus = 'resize smart -50'
 ctrl-shift-alt-equal = 'resize smart +50'
 
 
-ctrl-shift-alt-cmd-comma = 'move-node-to-monitor prev --wrap-around'
-ctrl-shift-alt-cmd-period = 'move-node-to-monitor next --wrap-around'
+ctrl-shift-alt-cmd-semicolon = 'move-node-to-monitor prev --wrap-around'
+ctrl-shift-alt-cmd-quote = 'move-node-to-monitor next --wrap-around'
 
 # ---Workspaces---
 ctrl-shift-alt-enter = 'workspace-back-and-forth'
@@ -63,8 +63,6 @@ ctrl-shift-alt-enter = 'workspace-back-and-forth'
 ctrl-shift-alt-semicolon = 'workspace prev --wrap-around'
 ctrl-shift-alt-quote = 'workspace next --wrap-around'
 
-ctrl-shift-alt-cmd-semicolon = 'move-workspace-to-monitor prev --wrap-around'
-ctrl-shift-alt-cmd-quote = 'move-workspace-to-monitor next --wrap-around'
 
 # Positioning
 ctrl-shift-alt-w = 'layout tiles horizontal vertical'
@@ -91,6 +89,8 @@ ctrl-shift-alt-cmd-6 = 'move-node-to-workspace 6'
 ctrl-shift-alt-leftSquareBracket = 'focus-monitor next --wrap-around'
 ctrl-shift-alt-rightSquareBracket = 'focus-monitor prev --wrap-around'
 
+ctrl-shift-alt-cmd-leftSquareBracket = 'move-workspace-to-monitor prev --wrap-around'
+ctrl-shift-alt-cmd-rightSquareBracket = 'move-workspace-to-monitor next --wrap-around'
 # --- Rules ---
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
