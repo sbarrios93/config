@@ -18,5 +18,11 @@ in
     # $ mas search <app name>
     #
     masApps = { };
+
+    onActivation = {
+      cleanup = "zap";
+      autoupdate = true;
+      upgrade = true;
+      };
   };
 }
