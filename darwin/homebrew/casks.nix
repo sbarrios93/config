@@ -15,7 +15,6 @@ _:
 
   # Utility Tools
   "1password"
-  "1password-cli"
   "raycast"
   "chromedriver"
   "fantastical"

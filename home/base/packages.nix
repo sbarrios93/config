@@ -18,6 +18,7 @@
 
     # CLI tools
     shell_gpt
+    _1password
 
     # Git and version control
     git # Distributed version control system
