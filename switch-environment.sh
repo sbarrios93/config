@@ -14,7 +14,7 @@ fi
 
 echo "Switching to $environment environment..."
 
-cat >vars/environment/default.nix <<EOF
+cat >vars/environments/default.nix <<EOF
 {
   environment = "$environment";
 }

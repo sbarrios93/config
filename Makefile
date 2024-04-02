@@ -16,7 +16,9 @@ deploy-personal: ## Deploy personal configuration
 deploy: $(DARWIN_REBUILD) ## Bootstrap
 	$(DARWIN_REBUILD) switch \
 		--flake .#aarch64-darwin \
-		--option accept-flake-config true.PHONY: fmt
+		--option accept-flake-config true
+
+.PHONY: fmt
 fmt: ## Format code
 	nix fmt --accept-flake-config
 
@@ -32,9 +34,3 @@ help: Makefile ## Print this help
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; \
 		{printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}'
-
-$(DARWIN_REBUILD):
-	nix build .#darwinConfigurations.aarch64-darwin.system \
-		--experimental-features "nix-command flakes" \
-		--accept-flake-config
-
