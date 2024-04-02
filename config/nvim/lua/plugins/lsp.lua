@@ -12,7 +12,7 @@ return {
       jsonls = {},
       marksman = {},
       sqlls = {},
-      nixd = {},
+      nil_ls = {},
     },
   },
 }

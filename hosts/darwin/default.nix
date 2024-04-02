@@ -8,6 +8,7 @@ let
   homebrew-core = self.inputs.homebrew-core;
   homebrew-cask = self.inputs.homebrew-cask;
   homebrew-bundle = self.inputs.homebrew-bundle;
+  aerospace-tap = self.inputs.aerospace-tap;
 in
 darwinSystem {
   system = "aarch64-darwin";
@@ -28,6 +29,7 @@ darwinSystem {
           "homebrew/homebrew-core" = homebrew-core;
           "homebrew/homebrew-cask" = homebrew-cask;
           "homebrew/homebrew-bundle" = homebrew-bundle;
+          "nikitabobko/homebrew-tap" = aerospace-tap;
         };
         mutableTaps = false;
         autoMigrate = true;

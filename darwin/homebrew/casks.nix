@@ -10,8 +10,8 @@ _:
 
   # Communication Tools
   "discord"
-  "slack"
-  "zoom"
+ # "slack"
+ # "zoom"
 
   # Utility Tools
   "1password"
