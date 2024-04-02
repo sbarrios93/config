@@ -21,7 +21,7 @@ in
 
     onActivation = {
       cleanup = "zap";
-      autoupdate = true;
+      autoUpdate = true;
       upgrade = true;
       };
   };
