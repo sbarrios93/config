@@ -20,7 +20,6 @@ in
     masApps = { };
     # https://github.com/zhaofengli/nix-homebrew/issues/5#issuecomment-1878798641
     taps = builtins.attrNames config.nix-homebrew.taps;
-    global.autoUpdate = false;
     onActivation = {
       cleanup = "zap";
       autoUpdate = true;
