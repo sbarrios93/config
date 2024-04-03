@@ -10,6 +10,8 @@ in
   homebrew = {
     enable = true;
     casks = pkgs.callPackage casks { };
+      
+    caskArgs.no_quarantine = true;
     # These app IDs are from using the mas CLI app
     # mas = mac app store
     # https://github.com/mas-cli/mas
@@ -22,7 +24,6 @@ in
     taps = builtins.attrNames config.nix-homebrew.taps;
     onActivation = {
       cleanup = "zap";
-      caskArgs.no_quarantine = true;
     };
   };
 }
