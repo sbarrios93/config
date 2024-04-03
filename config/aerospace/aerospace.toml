@@ -54,8 +54,14 @@ ctrl-shift-alt-minus = 'resize smart -50'
 ctrl-shift-alt-equal = 'resize smart +50'
 
 
-ctrl-shift-alt-cmd-semicolon = 'move-node-to-monitor prev --wrap-around'
-ctrl-shift-alt-cmd-quote = 'move-node-to-monitor next --wrap-around'
+ctrl-shift-alt-cmd-semicolon = [
+  'move-node-to-monitor prev --wrap-around',
+  'focus-monitor prev --wrap-around',
+]
+ctrl-shift-alt-cmd-quote = [
+  'move-node-to-monitor next --wrap-around',
+  'focus-monitor next --wrap-around',
+]
 
 # ---Workspaces---
 ctrl-shift-alt-enter = 'workspace-back-and-forth'
