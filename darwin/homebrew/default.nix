@@ -22,8 +22,7 @@ in
     taps = builtins.attrNames config.nix-homebrew.taps;
     onActivation = {
       cleanup = "zap";
-      autoUpdate = true;
-      upgrade = true;
+      caskArgs.no_quarantine = true;
     };
   };
 }
