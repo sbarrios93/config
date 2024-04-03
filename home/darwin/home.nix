@@ -1,8 +1,9 @@
-{ user, ... }:
+{ user, lib,... }:
 {
   home = {
     username = user.username;
     homeDirectory = "/Users/${user.username}";
+    activation = import ./activationScript.nix { inherit lib; };
 
     # This value determines the Home Manager release that your configuration is
     # compatible with. This helps avoid breakage when a new Home Manager
