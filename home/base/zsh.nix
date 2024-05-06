@@ -39,6 +39,7 @@
       save = 10000;
     };
     shellAliases = import ../../config/zsh/aliases.nix;
+    profileExtra = builtins.readFile ../../config/zsh/profile.zsh;
     envExtra = builtins.readFile ../../config/zsh/env.zsh;
     initExtra = builtins.concatStringsSep "\n" (
       map builtins.readFile (

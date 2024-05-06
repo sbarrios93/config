@@ -17,7 +17,7 @@
 
 
     # CLI tools
-    shell_gpt
+    shell-gpt
     _1password
 
     # Git and version control
