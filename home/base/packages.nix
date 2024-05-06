@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     # General packages for development and system management
-    awscli # Command-line interface for AWS
     bash-completion # Programmable completion for Bash
     coreutils # Basic file, shell, and text manipulation utilities
     file # Utility for determining file types

@@ -7,7 +7,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # Automatically detect files in the store with identical contents and
   # replaces them with hard links to a single copy
-  nix.settings.auto-optimise-store = true;
+  nix.settings.auto-optimise-store = false;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Do garbage collection weekly to keep disk usage low
