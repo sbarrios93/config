@@ -21,7 +21,6 @@
 
     # Git and version control
     git # Distributed version control system
-    git-branchless # Enhance git stacked diffs
     lazygit # Simple terminal UI for Git commands
 
     # Monitoring and resource management
