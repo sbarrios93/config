@@ -23,10 +23,6 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
-    aerospace-tap = {
-      url = "github:nikitabobko/homebrew-tap";
-      flake = false;
-    };
   };
 
   outputs = { nixpkgs, ... } @inputs:

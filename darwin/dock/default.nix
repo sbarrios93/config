@@ -22,13 +22,13 @@
   local.dock.enable = true;
   local.dock.entries = [
     { path = "/Applications/Slack.app/"; }
-    { path = "/Applications/Arc.app/"; }
+    { path = "/Applications/Firefox.app/"; }
     { path = "/Applications/WezTerm.app/"; }
     { path = "/System/Applications/Home.app/"; }
-    # {
-    #   path = "${config.users.users.${user}.home}/.local/share/";
-    #   section = "others";
-    #   options = "--sort name --view grid --display folder";
-    # }
+    {
+      path = "/Users/sbarrios/Downloads";
+      section = "others";
+      options = "--sort dateadded --view fan --display stack";
+    }
   ];
 }
