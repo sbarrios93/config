@@ -12,7 +12,6 @@ _:
   "chromedriver"
   "fantastical"
   "karabiner-elements"
-  "mac-mouse-fix"
   "monitorcontrol"
   "the-unarchiver"
   "dropbox"
@@ -22,7 +21,6 @@ _:
 
   # Browsers
   "google-chrome"
-  "firefox"
 
   # VM
   "utm"
