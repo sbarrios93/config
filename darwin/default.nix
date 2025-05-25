@@ -10,7 +10,6 @@
     ./keyboard.nix
     ./CustomUserPreferences.nix
     ./touchID.nix
-    ./nix.nix
     ./user.nix
   ];
 }
